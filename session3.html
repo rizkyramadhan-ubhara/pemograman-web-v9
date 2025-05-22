@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Logout</title>
+</head>
+<body>
+  <script>
+    // Periksa apakah login aktif
+    if (sessionStorage.getItem("login")) {
+      // Hapus semua sessionStorage
+      sessionStorage.removeItem("login");
+
+      // Tampilkan pesan logout
+      document.write("<h1>Anda sudah berhasil LOGOUT</h1>");
+      document.write("<h2>Klik <a href='index.html'>di sini</a> untuk LOGIN kembali</h2>");
+      document.write("<h2>Anda sekarang tidak bisa masuk ke halaman <a href='session2.html'>session2.html</a> lagi</h2>");
+    } else {
+      // Jika belum login
+      document.write("<h2>Anda belum login!</h2>");
+      document.write("<a href='index.html'>Klik di sini untuk login</a>");
+    }
+  </script>
+</body>
+</html>

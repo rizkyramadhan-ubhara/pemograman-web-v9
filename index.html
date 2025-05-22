@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Silahkan login ...</title>
+</head>
+<body>
+  <form id="loginForm">
+    <h2>Silahkan login ...</h2>
+    Username: <input type="text" name="user" id="user" /><br/>
+    Password: <input type="password" name="pass" id="pass" /><br/>
+    <input type="submit" value="Log In" />
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // mencegah reload halaman
+
+      const user = document.getElementById("user").value;
+      const pass = document.getElementById("pass").value;
+
+      if (user === "mahasiswa" && pass === "@mahasiswa") {
+        // Simulasi session menggunakan sessionStorage
+        sessionStorage.setItem("login", user);
+
+        document.getElementById("result").innerHTML = `
+          <h1>Anda berhasil LOGIN</h1>
+          <h2>Klik <a href='session2.html'> di sini (session2.html)</a> untuk menuju ke halaman pemeriksaan session</h2>
+        `;
+        document.getElementById("loginForm").style.display = "none";
+      } else {
+        alert("Username atau password salah.");
+      }
+    });
+  </script>
+</body>
+</html>

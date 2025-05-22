@@ -1,0 +1,43 @@
+<?php
+session_start();
+
+//pemeriksaan session
+if (isset($_SESSION['Login']))  {
+    //jika sudah login
+    //menampilkan isi session
+    echo "<h1>Selamat Datang ". $_SESSION['Login'] ."<h1>";
+    echo "<h2>Halaman ini hanya bisa diakses jika anda sudah
+ login</h2>";
+    echo "<h2>Klik <a href=' session3.php'>di sini 
+(session03.php) </a untuk LOGOUT</h2>";
+} else {
+    //session belum ada artinya belum login
+    die ("Anda belum login! Anda tidak berhak masuk ke halaman login <a href='session1.php'>di sini</a>");
+}
+?><!DOCTYPE html>
+<html>
+<head>
+  <title>Halaman Pemeriksaan Login</title>
+</head>
+<body>
+  <div id="konten"></div>
+
+  <script>
+    // Periksa apakah "login" ada di sessionStorage
+    const user = sessionStorage.getItem("login");
+
+    if (user) {
+      document.getElementById("konten").innerHTML = `
+        <h1>Selamat Datang ${user}</h1>
+        <h2>Halaman ini hanya bisa diakses jika Anda sudah login</h2>
+        <h2>Klik <a href="session3.html">di sini (session3.html)</a> untuk LOGOUT</h2>
+      `;
+    } else {
+      document.body.innerHTML = `
+        <h2>Anda belum login! Anda tidak berhak masuk ke halaman ini.</h2>
+        <a href="index.html">Klik di sini untuk login</a>
+      `;
+    }
+  </script>
+</body>
+</html>

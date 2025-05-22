@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pemeriksaan Cookies</title>
+</head>
+<body>
+  <div id="hasil"></div>
+
+  <script>
+    // Fungsi untuk mengambil nilai cookie berdasarkan nama
+    function getCookie(name) {
+      const cookies = document.cookie.split("; ");
+      for (let i = 0; i < cookies.length; i++) {
+        const [key, value] = cookies[i].split("=");
+        if (key === name) {
+          return decodeURIComponent(value);
+        }
+      }
+      return null;
+    }
+
+    const username = getCookie("username");
+    const namalengkap = getCookie("namalengkap");
+
+    let output = "";
+
+    if (username) {
+      output += `<h1>Cookie 'username' ada. Isinya: ${username}</h1>`;
+    } else {
+      output += `<h1>Cookie 'username' TIDAK ada.</h1>`;
+    }
+
+    if (namalengkap) {
+      output += `<h1>Cookie 'namalengkap' ada. Isinya: ${namalengkap}</h1>`;
+    } else {
+      output += `<h1>Cookie 'namalengkap' TIDAK ada.</h1>`;
+    }
+
+    output += `<h2>Klik <a href="cookie1.html">di sini</a> untuk penciptaan cookies</h2>`;
+    output += `<h2>Klik <a href="cookie3.html">di sini</a> untuk penghapusan cookies</h2>`;
+
+    document.getElementById("hasil").innerHTML = output;
+  </script>
+</body>
+</html>

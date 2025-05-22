@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hapus Cookies</title>
+</head>
+<body>
+  <h1 id="hasil"></h1>
+  <h2><a href="cookie1.html">Klik di sini</a> untuk penciptaan cookies</h2>
+  <h2><a href="cookie2.html">Klik di sini</a> untuk pemeriksaan cookies</h2>
+
+  <script>
+    // Fungsi untuk menghapus cookie dengan cara mengatur expiry ke masa lalu
+    function deleteCookie(name) {
+      document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    }
+
+    deleteCookie("username");
+    deleteCookie("namalengkap");
+
+    document.getElementById("hasil").innerText = "Cookie berhasil dihapus.";
+  </script>
+</body>
+</html>
